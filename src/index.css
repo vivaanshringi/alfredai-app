@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Use plain CSS here instead of @apply to avoid the v4 error */
+/* Hard reset: remove Vite starter styles that force white + flex centering */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
 body {
-  background: #ffffff;      /* same as bg-white */
-  color: #1f2937;           /* roughly text-gray-800 */
+  margin: 0;
+  display: block;            /* IMPORTANT: prevents the "everything centered" issue */
+  background: #070a12;       /* dark canvas */
+  color: #e5e7eb;            /* slate-200-ish */
 }
 

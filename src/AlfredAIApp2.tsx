@@ -1,4 +1,3 @@
-// AlfredAIApp.tsx :contentReference[oaicite:0]{index=0}
 import React, { useMemo, useRef, useState } from "react";
 import {
   Upload,
@@ -225,8 +224,7 @@ export default function AlfredAIApp() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const out = await res.json();
       setAgentResultMsg(
-        out?.message ??
-          `Agent executed ${actionPlan.length} action(s) successfully.`
+        out?.message ?? `Agent executed ${actionPlan.length} action(s) successfully.`
       );
     } catch (e: any) {
       alert("Agent execution failed: " + (e?.message ?? "Unknown error"));
@@ -243,12 +241,8 @@ export default function AlfredAIApp() {
       <div className="border-b border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div>
-            <div className="text-base font-semibold tracking-tight">
-              AlfredAI
-            </div>
-            <div className="text-sm text-white/60">
-              Pricing & inventory co-pilot
-            </div>
+            <div className="text-base font-semibold tracking-tight">AlfredAI</div>
+            <div className="text-sm text-white/60">Pricing & inventory co-pilot</div>
           </div>
 
           <button
@@ -279,11 +273,10 @@ export default function AlfredAIApp() {
         {/* Strategy selector: one row segmented control */}
         <section className="mx-auto max-w-5xl">
           <GlassCard>
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex flex-col items-center text-center gap-2">
+
               <div>
-                <div className="text-base font-semibold text-white/90">
-                  Strategy
-                </div>
+                <div className="text-base font-semibold text-white/90">Strategy</div>
                 <div className="text-sm text-white/55">
                   Choose how Alfred prioritizes actions.
                 </div>
@@ -292,15 +285,8 @@ export default function AlfredAIApp() {
 
             <div className="mt-5">
               <div className="flex flex-col lg:flex-row lg:items-center gap-3">
-                <div className="w-full">
-                  {/* CHANGED: centered + more spacing */}
-                  <div
-                    className={cn(
-                      "flex justify-center items-center flex-wrap",
-                      "gap-6 rounded-2xl bg-white/[0.04] ring-1 ring-white/10",
-                      "px-6 py-4"
-                    )}
-                  >
+                <div className="w-full overflow-x-auto">
+                  <div className="inline-flex min-w-full lg:min-w-0 gap-2 rounded-2xl bg-white/[0.04] ring-1 ring-white/10 p-2">
                     <ModePill
                       active={mode === "balanced"}
                       title="Balanced"
@@ -330,9 +316,7 @@ export default function AlfredAIApp() {
 
                 <div className="text-sm text-white/60 lg:text-right lg:min-w-[260px]">
                   Selected:{" "}
-                  <span className="text-white/85 font-medium">
-                    {modeLabel(mode)}
-                  </span>
+                  <span className="text-white/85 font-medium">{modeLabel(mode)}</span>
                   <div className="text-xs text-white/45 mt-1">
                     Impacts how Alfred prioritizes actions
                   </div>
@@ -434,9 +418,7 @@ export default function AlfredAIApp() {
               img="/card-settings.svg"
               title="Guardrails"
               desc="Cap max price change, minimum margin, and inventory bounds."
-              action={
-                <div className="text-xs text-white/55">Next: policy editor</div>
-              }
+              action={<div className="text-xs text-white/55">Next: policy editor</div>}
             />
 
             <FeatureCard
@@ -479,12 +461,8 @@ export default function AlfredAIApp() {
             <GlassCard className="lg:col-span-2">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-base font-semibold text-white/90">
-                    Overview
-                  </div>
-                  <div className="text-sm text-white/55">
-                    Quick read of what’s happening.
-                  </div>
+                  <div className="text-base font-semibold text-white/90">Overview</div>
+                  <div className="text-sm text-white/55">Quick read of what’s happening.</div>
                 </div>
 
                 <div className="w-full max-w-sm">
@@ -510,16 +488,12 @@ export default function AlfredAIApp() {
 
               <div className="mt-5 text-xs text-white/55">
                 Est. revenue uplift:{" "}
-                <span className="text-white/85 font-medium">
-                  {formatMoney(stats.estUplift)}
-                </span>
+                <span className="text-white/85 font-medium">{formatMoney(stats.estUplift)}</span>
               </div>
             </GlassCard>
 
             <GlassCard>
-              <div className="text-base font-semibold text-white/90">
-                Next step
-              </div>
+              <div className="text-base font-semibold text-white/90">Next step</div>
               <div className="mt-2 text-sm text-white/70">
                 Run the agent, review the plan, then execute approved actions.
               </div>
@@ -564,12 +538,9 @@ export default function AlfredAIApp() {
           <GlassCard className="mx-auto max-w-5xl">
             <div className="flex items-center justify-between gap-4">
               <div>
-                <div className="text-lg font-semibold text-white/90">
-                  Detailed SKU table
-                </div>
+                <div className="text-lg font-semibold text-white/90">Detailed SKU table</div>
                 <div className="text-sm text-white/55">
-                  Showing {filteredRows.length.toLocaleString()} of{" "}
-                  {rows.length.toLocaleString()}
+                  Showing {filteredRows.length.toLocaleString()} of {rows.length.toLocaleString()}
                 </div>
               </div>
 
@@ -594,16 +565,11 @@ export default function AlfredAIApp() {
               <table className="w-full text-sm">
                 <thead className="bg-white/[0.05] text-white/60">
                   <tr>
-                    {["SKU", "Product", "Strategy", "Action", "Units", "Price"].map(
-                      (h) => (
-                        <th
-                          key={h}
-                          className="text-left px-4 py-3 font-medium whitespace-nowrap"
-                        >
-                          {h}
-                        </th>
-                      )
-                    )}
+                    {["SKU", "Product", "Strategy", "Action", "Units", "Price"].map((h) => (
+                      <th key={h} className="text-left px-4 py-3 font-medium whitespace-nowrap">
+                        {h}
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody>
@@ -616,19 +582,12 @@ export default function AlfredAIApp() {
                         {r.sku}
                       </td>
                       <td className="px-4 py-3 max-w-[560px]">
-                        <div
-                          className="truncate text-white/85"
-                          title={r.product_name}
-                        >
+                        <div className="truncate text-white/85" title={r.product_name}>
                           {r.product_name}
                         </div>
                       </td>
-                      <td className="px-4 py-3 text-white/70 whitespace-nowrap">
-                        {r.strategy}
-                      </td>
-                      <td className="px-4 py-3 text-white/70 whitespace-nowrap">
-                        {r.price_action}
-                      </td>
+                      <td className="px-4 py-3 text-white/70 whitespace-nowrap">{r.strategy}</td>
+                      <td className="px-4 py-3 text-white/70 whitespace-nowrap">{r.price_action}</td>
                       <td className="px-4 py-3 text-white/70 whitespace-nowrap">
                         {(r.units_ordered || 0).toLocaleString()}
                       </td>
@@ -640,10 +599,7 @@ export default function AlfredAIApp() {
 
                   {!rows.length && (
                     <tr>
-                      <td
-                        colSpan={6}
-                        className="px-4 py-10 text-center text-white/55"
-                      >
+                      <td colSpan={6} className="px-4 py-10 text-center text-white/55">
                         No data yet — run the agent or upload JSON.
                       </td>
                     </tr>
@@ -712,9 +668,7 @@ function MiniStat({ label, value }: { label: string; value: number }) {
   return (
     <div className="rounded-2xl bg-white/[0.03] ring-1 ring-white/10 p-4">
       <div className="text-xs text-white/55">{label}</div>
-      <div className="mt-2 text-xl font-semibold text-white/90">
-        {value.toLocaleString()}
-      </div>
+      <div className="mt-2 text-xl font-semibold text-white/90">{value.toLocaleString()}</div>
     </div>
   );
 }

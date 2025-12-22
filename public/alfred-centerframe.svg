@@ -1,0 +1,109 @@
+<svg width="1400" height="460" viewBox="0 0 1400 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1B3B" stop-opacity="0.85"/>
+      <stop offset="0.55" stop-color="#0A2A55" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#081733" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(1020 150) rotate(135) scale(520 520)">
+      <stop stop-color="#5DD6FF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#5DD6FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="accent" x1="420" y1="70" x2="1060" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3BC2FF"/>
+      <stop offset="0.5" stop-color="#7C5CFF"/>
+      <stop offset="1" stop-color="#FF4FD8"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-40" y="-40" width="1480" height="540" filterUnits="userSpaceOnUse">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0.6 0" result="shadow"/>
+      <feOffset dy="14"/>
+      <feMerge>
+        <feMergeNode in="shadow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="glowFilter" x="-80" y="-80" width="1560" height="620" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="22" result="g"/>
+      <feColorMatrix in="g" type="matrix"
+        values="0 0 0 0 0.35
+                0 0 0 0 0.80
+                0 0 0 0 1
+                0 0 0 0.38 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- card frame -->
+  <g filter="url(#softShadow)">
+    <rect x="28" y="28" width="1344" height="404" rx="34" fill="url(#bg)" stroke="rgba(255,255,255,0.12)"/>
+    <rect x="28" y="28" width="1344" height="404" rx="34" fill="url(#glow)"/>
+
+    <!-- decorative lines -->
+    <g opacity="0.22" stroke="white">
+      <path d="M90 120H380" stroke-width="1"/>
+      <path d="M90 150H300" stroke-width="1"/>
+      <path d="M90 180H260" stroke-width="1"/>
+      <path d="M1020 290H1310" stroke-width="1"/>
+      <path d="M1120 320H1310" stroke-width="1"/>
+      <path d="M1200 350H1310" stroke-width="1"/>
+    </g>
+
+    <!-- left icon badge -->
+    <g opacity="0.95" filter="url(#glowFilter)">
+      <circle cx="120" cy="98" r="28" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.14)"/>
+      <path d="M112 98h16M120 90v16" stroke="url(#accent)" stroke-width="2" stroke-linecap="round"/>
+    </g>
+
+    <!-- title -->
+    <text x="170" y="110" fill="white" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="34" font-weight="700">
+      AlfredAI
+    </text>
+
+    <!-- tagline -->
+    <text x="170" y="148" fill="rgba(255,255,255,0.72)" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" font-weight="500">
+      Pricing &amp; inventory co-pilot
+    </text>
+
+    <!-- supporting line -->
+    <text x="170" y="190" fill="rgba(255,255,255,0.58)" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="15">
+      Turn SKU signals into clear actions — raise, hold, or push — with guardrails.
+    </text>
+
+    <!-- right “agentic” motif -->
+    <g transform="translate(980 90)" opacity="0.95">
+      <rect x="0" y="0" width="340" height="220" rx="22" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+      <rect x="18" y="18" width="180" height="14" rx="7" fill="rgba(255,255,255,0.10)"/>
+      <rect x="18" y="44" width="140" height="10" rx="5" fill="rgba(255,255,255,0.08)"/>
+      <rect x="18" y="64" width="210" height="10" rx="5" fill="rgba(255,255,255,0.08)"/>
+
+      <g transform="translate(210 70)">
+        <rect x="0" y="0" width="110" height="110" rx="18" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)"/>
+        <text x="55" y="68" text-anchor="middle" fill="url(#accent)"
+          font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="38" font-weight="800">AI</text>
+        <g opacity="0.35" stroke="url(#accent)">
+          <path d="M55 -8V10" stroke-width="2" stroke-linecap="round"/>
+          <path d="M55 110V128" stroke-width="2" stroke-linecap="round"/>
+          <path d="M-8 55H10" stroke-width="2" stroke-linecap="round"/>
+          <path d="M110 55H128" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- bottom gradient strip -->
+    <rect x="28" y="374" width="1344" height="58" rx="0" fill="rgba(255,255,255,0.02)"/>
+  </g>
+</svg>
+
